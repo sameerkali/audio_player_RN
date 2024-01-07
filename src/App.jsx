@@ -54,3 +54,11 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+
+
+
+
+//https://backend.divinezone.in/getAllMantras 
+
+// fetch all mantras from the server
