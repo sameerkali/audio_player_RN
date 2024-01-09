@@ -1,3 +1,53 @@
+// export const playListData = [
+//   {
+//     mantras_id: 16,
+//     title: 'trgfkmbhhhh',
+//     artWork:
+//       'https://backend.divinezone.in/image/1701285313510-image-3d-ganesha-dark-background-diwali (2).jpg',
+//     URL:
+//       'https://backend.divinezone.in/audio/1701285323935-Ugram Viram Maha Vishnum.mp3',
+//     artist: 'gbbbbb',
+//     details: 'deeksha',
+//     createdAt: '2023-11-29T19:15:39.000Z',
+//     updatedAt: '2023-12-12T10:53:41.000Z',
+//   },
+//   {
+//     mantras_id: 18,
+//     title: 'prakhar',
+//     artWork:
+//       'https://backend.divinezone.in/image/1701285508610-image-3d-ganesha-dark-background-diwali (2).jpg',
+//     URL:
+//       'https://backend.divinezone.in/audio/1701285532039-Ugram Viram Maha Vishnum.mp3',
+//     artist: 'not good',
+//     details: 'hi',
+//     createdAt: '2023-11-29T19:19:15.000Z',
+//     updatedAt: '2023-12-05T10:13:52.000Z',
+//   },
+//   {
+//     mantras_id: 21,
+//     title: 'Deeksha',
+//     artWork:
+//       'https://backend.divinezone.in/image/1701344528684-prince.jpeg',
+//     URL: 'https://backend.divinezone.in/audio/1701344528686-Ugram.mp3',
+//     artist: 'i m good',
+//     details: 'these are',
+//     createdAt: '2023-11-30T11:42:11.000Z',
+//     updatedAt: '2023-12-05T10:11:06.000Z',
+//   },
+//   {
+//     mantras_id: 24,
+//     title: 'zmndv jhsf v',
+//     artWork:
+//       'http://143.110.188.54:7000/image/1703659199422-Aqsa-Mosque.jpg state of palastile.jpg',
+//     URL:
+//       'http://143.110.188.54:7000/audio/1703659199559-01 Sooraj Dooba Hain Yaaron - Roy (Arijit Singh) 192Kbps.mp3',
+//     artist: 'dhzh bvhjsd  vks',
+//     details: 'dzhbjhsd fj s',
+//     createdAt: '2023-12-27T06:40:00.000Z',
+//     updatedAt: '2023-12-27T06:40:00.000Z',
+//   },
+// ];
+
 export const playListData = [
   {
     id: 1,
@@ -48,7 +98,7 @@ export const playListData = [
 
 // constants.js
 
-export const API_URL = 'https://backend.divinezone.in/getAllMantras';
+// export const API_URL = 'https://backend.divinezone.in/getAllMantras';
 
 
 
@@ -60,7 +110,9 @@ export const API_URL = 'https://backend.divinezone.in/getAllMantras';
 // export const fetchMantras = async () => {
 //   try {
 //     const response = await fetch(MANTRAS_API_URL);
+//     console.log("================================"+response)
 //     const data = await response.json();
+//     console.log("================================"+data)
 //     return data.data || [];
 //   } catch (error) {
 //     console.error('Error fetching mantras:', error);
@@ -71,6 +123,7 @@ export const API_URL = 'https://backend.divinezone.in/getAllMantras';
 // export const playListData = async () => {
 //   try {
 //     const mantrasData = await fetchMantras();
+//     // console.log("================================"+mantrasData)
 //     return mantrasData.map(mantra => ({
 //       id: mantra.mantras_id.toString(),
 //       url: mantra.URL,
