@@ -124,19 +124,19 @@ const fetchPlayListData = async () => {
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
-    console.log(data.data[1].title, '==================----------------------------------');
+    // console.log(data.data[1].title, '==================----------------------------------');
 
     if (data.data && data.message === 'All mantras fetched successfully.' && Array.isArray(data.data)) {
       const dynamicPlayListData = data.data.map((item) => ({
-        id: item.id || '',
+        id: item.id || '1',
         title: item.title || 'Kesariya',
         artist: item.artist || 'Arijit Singh, Amitabh Bhattacharya',
         album: item.album || 'Brahmastra',
-        artwork: item.artWork || 'https://c.saavncdn.com/734/Champagne-Talk-Hindi-2022-20221008011951-500x500.jpg',
-        url: item.url || './src/assets/one.mp3',
+        artwork: item.artWork || 'https://backend.divinezone.in/image/1701285313510-image-3d-ganesha-dark-background-diwali%20(2).jpg',
+        url: item.url || '',
       }));
 
-      console.log('Fetched data:', dynamicPlayListData);
+      // console.log('Fetched data:', dynamicPlayListData);
       return dynamicPlayListData;
     } else {
       console.error('Error fetching data:', data.message);
@@ -161,13 +161,13 @@ export async function setupPlayer() {
 export async function addTracks() {
   try {
     const dynamicPlayListData = await fetchPlayListData();
-    console.log(dynamicPlayListData, '=============================');
+    console.log('==================', dynamicPlayListData[0].artWork, '=============================');
 
     if (dynamicPlayListData.length > 0) {
       await TrackPlayer.reset(); // Clear existing tracks before adding new ones
       await TrackPlayer.add(dynamicPlayListData);
       await TrackPlayer.setRepeatMode(RepeatMode.Queue);
-      console.log('Tracks added successfully.');
+      console.log('Tracks added successfully. 😁😁😁');
     } else {
       console.error('No tracks fetched.');
     }
