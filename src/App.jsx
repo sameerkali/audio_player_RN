@@ -1,30 +1,26 @@
-import React, {useState, useEffect} from 'react';
-
+import React, { useState, useEffect } from 'react';
 import {
   ActivityIndicator,
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
-  useColorScheme,
   View,
 } from 'react-native';
 
-import {setupPlayer, addTrack} from '../musicPlayerServices';
+import { setupPlayer, addTracks } from '../musicPlayerServices';
 import MusicPlayer from './screens/MusicPlayer';
 
 function App() {
-  const [isPlayerReady, setIsPaylerReady] = useState(false);
+  const [isPlayerReady, setIsPlayerReady] = useState(false);
 
   async function setup() {
     let isSetup = await setupPlayer();
 
     if (isSetup) {
-      await addTrack();
+      await addTracks(); // Corrected function name
     }
 
-    setIsPaylerReady(isSetup);
+    setIsPlayerReady(isSetup);
   }
 
   useEffect(() => {
@@ -33,15 +29,15 @@ function App() {
 
   if (!isPlayerReady) {
     return (
-      <SafeAreaView>
-        <ActivityIndicator />
+      <SafeAreaView style={styles.loadingContainer}>
+        <ActivityIndicator size="large" />
       </SafeAreaView>
     );
   }
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle="light-content" />
       <MusicPlayer />
     </View>
   );
@@ -51,14 +47,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default App;
-
-
-
-
-
-//https://backend.divinezone.in/getAllMantras 
-
-// fetch all mantras from the server
