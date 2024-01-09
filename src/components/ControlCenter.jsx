@@ -7,22 +7,36 @@ const ControlCenter = () => {
   const playBackState = usePlaybackState();
 
   const skipToNext = async () => {
-    await TrackPlayer.skipToNext();
+    try {
+      await TrackPlayer.skipToNext();
+    } catch (error) {
+      console.error('Error skipping to next track:', error);
+    }
   };
 
   const skipToPrevious = async () => {
-    await TrackPlayer.skipToPrevious();
+    try {
+      await TrackPlayer.skipToPrevious();
+    } catch (error) {
+      console.error('Error skipping to previous track:', error);
+    }
   };
 
   const togglePlayback = async () => {
-    const currentPlaybackState = await TrackPlayer.getPlaybackState();
+    try {
+      const currentPlaybackState = await TrackPlayer.getPlaybackState();
+      console.log('Current playback state:', currentPlaybackState);
 
-    if (currentPlaybackState !== null) {
-      if (currentPlaybackState === State.Playing) {
-        await TrackPlayer.pause();
+      if (currentPlaybackState == State.Playing) {
+        await TrackPlayer.setPlayWhenReady(false);
+        console.log('inside: pause :', currentPlaybackState);
+
       } else {
-        await TrackPlayer.play();
+        await TrackPlayer.setPlayWhenReady(true);
+        console.log('inside: play :', currentPlaybackState);
       }
+    } catch (error) {
+      console.error('Error toggling playback:', error);
     }
   };
 
@@ -58,3 +72,4 @@ const styles = StyleSheet.create({
 });
 
 export default ControlCenter;
+

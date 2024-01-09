@@ -45,3 +45,41 @@ export const playListData = [
     url: require('./assets/five.mp3'),
   },
 ];
+
+// constants.js
+
+export const API_URL = 'https://backend.divinezone.in/getAllMantras';
+
+
+
+
+// constants.js
+
+// export const MANTRAS_API_URL = 'https://backend.divinezone.in/getAllMantras';
+
+// export const fetchMantras = async () => {
+//   try {
+//     const response = await fetch(MANTRAS_API_URL);
+//     const data = await response.json();
+//     return data.data || [];
+//   } catch (error) {
+//     console.error('Error fetching mantras:', error);
+//     throw error;
+//   }
+// };
+
+// export const playListData = async () => {
+//   try {
+//     const mantrasData = await fetchMantras();
+//     return mantrasData.map(mantra => ({
+//       id: mantra.mantras_id.toString(),
+//       url: mantra.URL,
+//       title: mantra.title,
+//       artist: mantra.artist,
+//       artwork: mantra.artWork,
+//     }));
+//   } catch (error) {
+//     console.error('Error creating playlist data:', error);
+//     throw error;
+//   }
+// };
